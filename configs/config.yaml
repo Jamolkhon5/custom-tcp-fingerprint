@@ -1,0 +1,48 @@
+network:
+  tun:
+    name: "tun0"
+    mtu: 1500
+
+  target:
+    host: "example.com"
+    port: 80
+
+  local:
+    port: 8080
+
+fingerprint:
+  type: "windows"
+
+  parameters:
+    window_size: 8192
+
+    ttl: 128
+
+    timestamps_enabled: false
+
+    mss: 1460
+
+    window_scale_enabled: true
+    window_scale_value: 8
+
+capture:
+  enabled: true
+
+  file: "/tmp/captures/traffic.pcap"
+
+  duration: 60
+
+logging:
+  level: "info"
+
+  file: ""
+
+bonus:
+  l2tunnel:
+    type: "gre"
+
+    local_ip: "127.0.0.1"
+
+    remote_ip: "127.0.0.2"
+
+    id: 100
